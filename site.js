@@ -20,7 +20,13 @@
     toggles.forEach(function (button) {
       button.setAttribute(
         'aria-label',
-        current() === 'dark' ? 'Switch to the light theme' : 'Switch to the dark theme'
+        document.documentElement.lang === 'de'
+          ? current() === 'dark'
+            ? 'Zum hellen Design wechseln'
+            : 'Zum dunklen Design wechseln'
+          : current() === 'dark'
+            ? 'Switch to the light theme'
+            : 'Switch to the dark theme'
       );
     });
   }
