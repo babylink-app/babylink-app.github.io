@@ -5,24 +5,38 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BabyLink: video baby monitor</title>
 <meta name="description" content="Turn a spare device into a baby camera. Live video and sound directly over your Wi-Fi. No account, no cloud, nothing recorded.">
-<meta name="theme-color" content="#0b0f17">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<!-- shared:head (copied to the other pages by tools/sync.mjs) -->
+<meta name="theme-color" content="#252e3d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f3ee" media="(prefers-color-scheme: light)">
+<link rel="icon" href="icon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icon-day.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('babylink.theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<!-- /shared:head -->
 </head>
 <body>
 
-<header class="wrap site-header">
+<!-- shared:header -->
+<header class="site-header">
+  <div class="wrap header-row">
   <a class="brand" href="index.html">
-    <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#161b26"/><path d="M21 9a8 8 0 1 0 4 12 6.4 6.4 0 1 1-4-12z" fill="#e0a458"/><circle cx="9" cy="10" r="1.6" fill="#f0a6c2"/><circle cx="26" cy="27" r="1.6" fill="#9fcbf0"/></svg>
+    <svg class="logo-night" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#161b26"/><circle cx="17" cy="17" r="3.8" fill="#f0a6c2"/><circle cx="83" cy="83" r="3.8" fill="#9fcbf0"/><g transform="translate(50 50) scale(1.1)"><path d="M28.98 7.78 A30 30 0 1 1 -7.78 -28.98 A26 26 0 1 0 28.98 7.78 Z" fill="#e0a458"/><path d="M-21 10 Q-16.5 15 -12 10" fill="none" stroke="#3B2A20" stroke-width="2.2" stroke-linecap="round"/><circle cx="-11.5" cy="17.5" r="2.8" fill="#f0a6c2" opacity="0.85"/><path d="M0 -27 A27 27 0 0 1 27 0 M0 -14.5 A14.5 14.5 0 0 1 14.5 0" fill="none" stroke="#8a93a3" stroke-width="6" stroke-linecap="round"/><circle r="4.5" fill="#4a5160"/></g></svg>
+    <svg class="logo-day" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#e0a458"/><circle cx="17" cy="17" r="3.8" fill="#f0a6c2"/><circle cx="83" cy="83" r="3.8" fill="#9fcbf0"/><g transform="translate(50 50) scale(1.1)"><path d="M28.98 7.78 A30 30 0 1 1 -7.78 -28.98 A26 26 0 1 0 28.98 7.78 Z" fill="#161b26"/><path d="M-21 10 Q-16.5 15 -12 10" fill="none" stroke="#e0a458" stroke-width="2.2" stroke-linecap="round"/><circle cx="-11.5" cy="17.5" r="2.8" fill="#f0a6c2" opacity="0.85"/><path d="M0 -27 A27 27 0 0 1 27 0 M0 -14.5 A14.5 14.5 0 0 1 14.5 0" fill="none" stroke="#8a93a3" stroke-width="6" stroke-linecap="round"/><circle r="4.5" fill="#4a5160"/></g></svg>
     BabyLink
   </a>
   <nav class="site-nav" aria-label="Main">
-    <a href="#features">Features</a>
-    <a href="#how">How it works</a>
+    <a href="index.html#features">Features</a>
+    <a href="index.html#how">How it works</a>
     <a href="support.html">Support</a>
+    <button class="theme-toggle" type="button" aria-label="Switch the theme">
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+    </button>
   </nav>
+  </div>
 </header>
+<!-- /shared:header -->
 
 <main>
   <section class="wrap hero" id="top">
@@ -30,10 +44,19 @@
       <p class="kicker"><span class="dot amber"></span><span class="dot rose"></span><span class="dot sky"></span>Video baby monitor</p>
       <h1>Keep an eye on <span>what matters.</span></h1>
       <p class="lead">Turn a spare device into a baby camera. Watch and listen on your own, directly over your Wi-Fi. No account, no cloud, nothing recorded.</p>
-      <div class="cta">
+      <div class="cta" style="margin-bottom: 28px">
         <!-- After the release: replace this with the App Store badge linking to the app. -->
         <span class="store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>Coming soon to the App Store</span>
         <span class="price-note">Free for 7 days · then €4.99 once</span>
+      </div>
+      <!-- The QR code opens BabyLink in the App Store (id 6830186237). Hidden until the release:
+           remove "hidden" on the day BabyLink is in the App Store. -->
+      <div class="qr" hidden>
+        <div class="qr-code">
+          <img src="qr-appstore.svg" alt="QR code: BabyLink in the App Store" width="96" height="96">
+          <svg class="qr-icon" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#161b26"/><g transform="translate(50 50) scale(1.25)"><path d="M28.98 7.78 A30 30 0 1 1 -7.78 -28.98 A26 26 0 1 0 28.98 7.78 Z" fill="#e0a458"/><path d="M0 -27 A27 27 0 0 1 27 0 M0 -14.5 A14.5 14.5 0 0 1 14.5 0" fill="none" stroke="#8a93a3" stroke-width="7" stroke-linecap="round"/></g></svg>
+        </div>
+        <p>Scan with your iPhone camera to open BabyLink in the App Store.</p>
       </div>
     </div>
     <div class="hero-art" aria-hidden="true">
@@ -44,7 +67,7 @@
       <div class="phones">
         <div class="phone camera">Tap to wake</div>
         <div class="phone parent">
-          <img src="img/app-icon.png" alt="" width="132" height="132">
+          <svg viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#0f131c"/><circle cx="17" cy="17" r="3.8" fill="#f0a6c2"/><circle cx="83" cy="83" r="3.8" fill="#9fcbf0"/><g transform="translate(50 50) scale(1.1)"><path d="M28.98 7.78 A30 30 0 1 1 -7.78 -28.98 A26 26 0 1 0 28.98 7.78 Z" fill="#e0a458"/><path d="M-21 10 Q-16.5 15 -12 10" fill="none" stroke="#3B2A20" stroke-width="2.2" stroke-linecap="round"/><circle cx="-11.5" cy="17.5" r="2.8" fill="#f0a6c2" opacity="0.85"/><path d="M0 -27 A27 27 0 0 1 27 0 M0 -14.5 A14.5 14.5 0 0 1 14.5 0" fill="none" stroke="#8a93a3" stroke-width="6" stroke-linecap="round"/><circle r="4.5" fill="#4a5160"/></g></svg>
           <p>BabyLink</p>
           <small>Camera · Parent</small>
         </div>
@@ -52,45 +75,77 @@
     </div>
   </section>
 
-  <section class="wrap" id="features">
-    <h2 class="section-title">Made for the night</h2>
-    <p class="section-lead">Quiet when all is well. Clear when something happens.</p>
-    <div class="tiles">
-      <div class="tile amber">
-        <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></div>
-        <p class="label">Alerts</p>
-        <h3>Noise and movement alerts</h3>
-        <p>One alert per cry, with a small photo from the camera.</p>
-      </div>
-      <div class="tile amber">
-        <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3L2 6M19 3l3 3"/></svg></div>
-        <p class="label">Alarms</p>
-        <h3>An alarm only if nobody reacts</h3>
-        <p>Calm by default. If the crying goes on and nobody answers, it rings.</p>
-      </div>
-      <div class="tile sky">
-        <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <p class="label">Never blind</p>
-        <h3>It tells you when it cannot see</h3>
-        <p>A lost connection, a stopped camera or a frozen picture never go unnoticed.</p>
-      </div>
-      <div class="tile sky">
-        <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><rect x="12" y="11" width="7" height="6" rx="1"/></svg></div>
-        <p class="label">Your phone</p>
-        <h3>Use your phone as usual</h3>
-        <p>Sound keeps playing when locked; the video floats in picture in picture.</p>
-      </div>
-      <div class="tile rose">
-        <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
-        <p class="label">Private</p>
-        <h3>Stays between your devices</h3>
-        <p>No account, no cloud, no server, no internet needed. Nothing is recorded.</p>
-      </div>
-      <div class="tile rose">
-        <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c.8-3.5 3.2-5 6-5s5.2 1.5 6 5M14 15.5c2.7-.6 5.8.6 6.8 4.5"/></svg></div>
-        <p class="label">Family</p>
-        <h3>Up to 4 parents</h3>
-        <p>Add a device with a short code. Everyone gets the video, sound and alerts.</p>
+  <section class="band" id="features">
+    <div class="wrap">
+      <h2 class="section-title">Made for the night</h2>
+      <p class="section-lead">Quiet when all is well. Clear when something happens. Tap a card to read more.</p>
+      <div class="tiles">
+        <div class="tile amber">
+          <button class="tile-toggle" type="button" aria-expanded="false" aria-controls="more-alerts" aria-labelledby="t-alerts">
+            <span class="more-sign" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+          </button>
+          <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></div>
+          <p class="label">Alerts</p>
+          <h3 id="t-alerts">Noise and movement alerts</h3>
+          <p class="short">One alert per cry, with a small photo from the camera.</p>
+          <div class="detail" id="more-alerts" aria-hidden="true"><p>When a sound lasts long enough, you get one notification for the whole cry, with the last picture from the camera, even on a locked phone. Low reacts only to loud crying, High also to quiet sounds. Movement alerts are off until you turn them on.</p></div>
+        </div>
+
+        <div class="tile amber">
+          <button class="tile-toggle" type="button" aria-expanded="false" aria-controls="more-alarms" aria-labelledby="t-alarms">
+            <span class="more-sign" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+          </button>
+          <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3L2 6M19 3l3 3"/></svg></div>
+          <p class="label">Alarms</p>
+          <h3 id="t-alarms">An alarm only if nobody reacts</h3>
+          <p class="short">Calm by default. If the crying goes on and nobody answers, it rings.</p>
+          <div class="detail" id="more-alarms" aria-hidden="true"><p>If your baby cries for a while, the sound on your phone is off and nobody reacts, an alarm starts: quietly, then louder. It rings even on silent, as loud as your volume allows. One touch stops it. You choose when: after 30 seconds, 1 or 2 minutes.</p></div>
+        </div>
+
+        <div class="tile sky">
+          <button class="tile-toggle" type="button" aria-expanded="false" aria-controls="more-blind" aria-labelledby="t-blind">
+            <span class="more-sign" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+          </button>
+          <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <p class="label">Never blind</p>
+          <h3 id="t-blind">It tells you when it cannot see</h3>
+          <p class="short">A lost connection, a stopped camera or a frozen picture never go unnoticed.</p>
+          <div class="detail" id="more-blind" aria-hidden="true"><p>BabyLink checks all the time that picture and sound really arrive. Wi-Fi gone, camera device locked, picture frozen: you get a notification within about 15 seconds, and an alarm if nobody reacts. It also warns when the camera device&#x27;s battery is low or it gets too warm.</p></div>
+        </div>
+
+        <div class="tile sky">
+          <button class="tile-toggle" type="button" aria-expanded="false" aria-controls="more-phone" aria-labelledby="t-phone">
+            <span class="more-sign" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+          </button>
+          <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><rect x="12" y="11" width="7" height="6" rx="1"/></svg></div>
+          <p class="label">Your phone</p>
+          <h3 id="t-phone">Use your phone as usual</h3>
+          <p class="short">Sound keeps playing when locked; the video floats in picture in picture.</p>
+          <div class="detail" id="more-phone" aria-hidden="true"><p>Read, write or watch something else: the video stays in a small window on top, and the sound keeps playing with the screen locked. Alerts arrive as notifications. If BabyLink is closed by mistake, your phone tells you it is not watching any more.</p></div>
+        </div>
+
+        <div class="tile rose">
+          <button class="tile-toggle" type="button" aria-expanded="false" aria-controls="more-private" aria-labelledby="t-private">
+            <span class="more-sign" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+          </button>
+          <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+          <p class="label">Private</p>
+          <h3 id="t-private">Stays between your devices</h3>
+          <p class="short">No account, no cloud, no server, no internet needed. Nothing is recorded.</p>
+          <div class="detail" id="more-private" aria-hidden="true"><p>Video and sound go straight from one device to the other over your own Wi-Fi, encrypted. Nobody else can watch, not even us: there is no server to send them to. No internet at all? One phone&#x27;s hotspot is enough.</p></div>
+        </div>
+
+        <div class="tile rose">
+          <button class="tile-toggle" type="button" aria-expanded="false" aria-controls="more-family" aria-labelledby="t-family">
+            <span class="more-sign" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+          </button>
+          <div class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c.8-3.5 3.2-5 6-5s5.2 1.5 6 5M14 15.5c2.7-.6 5.8.6 6.8 4.5"/></svg></div>
+          <p class="label">Family</p>
+          <h3 id="t-family">Up to 4 parents</h3>
+          <p class="short">Add a device with a short code. Everyone gets the video, sound and alerts.</p>
+          <div class="detail" id="more-family" aria-hidden="true"><p>Up to four parent devices watch one camera, each with its own sound and alerts. A new device joins with a short code that works once, for 10 minutes. Any device can rename or remove the others, and two devices can swap camera and parent.</p></div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -117,15 +172,15 @@
   <section class="wrap section">
     <div class="faq">
       <h2 class="section-title" style="margin-bottom: 24px">Good to know</h2>
-      <details>
+      <details class="q">
         <summary>What do I need?</summary>
         <p>Two or more devices with BabyLink on the same Wi-Fi, or on one phone's hotspot.</p>
       </details>
-      <details>
+      <details class="q">
         <summary>Does the camera device need to stay open?</summary>
         <p>Yes. The camera stops when the device is locked, so BabyLink keeps it open and dims its screen to black. Put it on a charger for the night.</p>
       </details>
-      <details>
+      <details class="q">
         <summary>Is anything stored or sent online?</summary>
         <p>No. There is no server and nothing is recorded. Read the <a href="privacy.html">Privacy Policy</a>.</p>
       </details>
@@ -134,6 +189,7 @@
   </section>
 </main>
 
+<!-- shared:footer -->
 <footer class="site-footer">
   <div class="wrap">
     <span class="copy">© 2026 Armen Madoyan</span>
@@ -144,6 +200,8 @@
     <p class="note">BabyLink is not a medical device and does not replace adult supervision.</p>
   </div>
 </footer>
+<script src="site.js"></script>
+<!-- /shared:footer -->
 
 </body>
 </html>
