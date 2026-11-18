@@ -127,7 +127,16 @@ img { max-width: 100%; }
 }
 .site-header.scrolled { border-bottom-color: var(--line-soft); box-shadow: var(--header-shadow); }
 .header-row { display: flex; align-items: center; gap: 12px 24px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
-section[id], .doc [id] { scroll-margin-top: 88px; }
+section[id], .doc [id] { scroll-margin-top: calc(var(--header-h, 72px) + 16px); }
+/* The section the page is in, next to BabyLink once its title is under the header (site.js). */
+.brand .here {
+  font-family: inherit; font-weight: 700; font-size: 16px; color: var(--text-2);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: min(42vw, 340px);
+  opacity: 0; transform: translateY(6px); transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.brand .here:empty { display: none; }
+.brand .here::before { content: '·'; margin-right: 8px; color: var(--muted); }
+.brand .here.show { opacity: 1; transform: none; }
 .brand {
   display: flex; align-items: center; gap: 10px; margin-right: auto;
   color: var(--text); text-decoration: none;
@@ -308,8 +317,8 @@ details.q p { margin: 12px 0 0; color: var(--muted); }
 .doc strong { color: var(--text); }
 .doc ul, .doc ol { padding-left: 22px; }
 .doc li::marker { color: var(--amber-fg); }
-.doc .part { font-size: clamp(28px, 4vw, 34px); font-weight: 800; margin: 64px 0 0; scroll-margin-top: 16px; }
-.doc h3 { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber-fg); margin: 32px 0 4px; scroll-margin-top: 16px; }
+.doc .part { font-size: clamp(28px, 4vw, 34px); font-weight: 800; margin: 64px 0 0; }
+.doc h3 { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber-fg); margin: 32px 0 4px; }
 .doc details { border-bottom: 1px solid var(--line); padding: 14px 0; }
 .doc summary { cursor: pointer; font-weight: 600; font-size: 17px; color: var(--text); }
 .doc summary:hover { color: var(--link); }
