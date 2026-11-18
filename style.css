@@ -320,6 +320,12 @@ details.q p { margin: 12px 0 0; color: var(--muted); }
 .toc a:hover { border-color: var(--amber); color: var(--link); }
 .muted { color: var(--muted); font-size: 15px; }
 .box { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 20px 22px; margin: 22px 0; }
+/* Support: "How it works", five pictures made from the app's own parts (scripts/how-it-works.mjs in the app). */
+.how { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 16px; margin: 14px 0 8px; }
+.how figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.how img { display: block; width: 100%; height: auto; border-radius: 20px; }
+.how figcaption { color: var(--text-2); font-size: 15px; line-height: 1.45; text-wrap: pretty; }
+.how figcaption strong { display: block; color: var(--text); font-size: 16px; margin-bottom: 2px; }
 .box p:last-child { margin: 0; }
 
 /* Footer */
